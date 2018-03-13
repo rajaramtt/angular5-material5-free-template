@@ -45,8 +45,8 @@ angular5-material2-free-template
 |
 |
 |____src
-|  | |____app
-|  |	|___dashboard
+|      	|____app
+|      	|	|___dashboard
 |		|	|
 |		|	|___layout
 |		|	|
@@ -82,12 +82,12 @@ angular5-material2-free-template
 |		|
 |		|
 |		|___assets			
-|			   |
+|			|
 |    		|____css
 |    		|    
 |    		|
 |    		|____json
-|   		 |   
+|   		|   
 |    		|
 |    		|____img
 |
@@ -97,7 +97,6 @@ angular5-material2-free-template
 |
 |
 |_____package.json
-
 
  ```
 

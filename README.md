@@ -3,8 +3,6 @@ Material design template for Angular 5 apps, built with Angular CLI
 
 Admin dashboard template based on Angular 5+, Angular Material 2.
 
-From Raja Thavalam
-Made with heart by Raja Thavalam.
 
 # Getting started
 
@@ -25,6 +23,11 @@ npm start
 ```bash
 ng --option
 ```
+
+## Features
+-Quickstart a project in seconds and focus on features, not on frameworks or tools
+-Scalable architecture with base app template including example components, services and tests
+
 
 
 ###File Structure
@@ -100,5 +103,13 @@ angular5-material2-free-template
 
  ```
 
+## Help/Assistance
+
+Email Us : rajaram.tavalam@gmail.com          
+
+
+## License
+
+[MIT](LICENSE)
 
 

@@ -1,0 +1,63 @@
+<mat-toolbar>
+    <span>View User</span>
+</mat-toolbar>
+<div>
+    <mat-card class="app-card">
+        <mat-list>
+            <mat-list-item>
+                <p matLine>
+                    <span>Name: </span>
+                    <span>{{users.name}}</span>
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <p matLine>
+                    <span>Gender: </span>
+                    <span>{{users.gender}}</span>
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <p matLine>
+                    <span>Email: </span>
+                    <span>{{users.email}}</span>
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <p matLine>
+                    <span>Notes: </span>
+                    <span [innerHTML]="users.notes == '' ? 'N/A' : users.notes "></span>
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <p matLine>
+                    <span>Status: </span>
+                    <span>
+                        <mat-chip [color]="users.status == 1 ? 'primary' : 'accent'" selected="true" [innerHTML]="users.status == true ? 'Enabled' : 'Disabled'"></mat-chip>
+                    </span>
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <p matLine>
+                    <span>Mobile: </span>
+                    <span>{{users.mobile}}</span>
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <p matLine>
+                    <span>Dob: </span>
+                    <span>{{users.dob | date: 'MM/dd/yyyy'}}</span>
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>
+                <button type="button" routerLink="/users" mat-raised-button color="warn">Go Back</button>
+            </mat-list-item>
+        </mat-list>
+    </mat-card>
+</div>

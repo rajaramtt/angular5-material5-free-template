@@ -1,0 +1,127 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import "fullcalendar/dist/fullcalendar.min.css";
+
+.app-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+.logo-icon {
+    height: 40px;
+    vertical-align: middle;
+    width: auto;
+    padding-left: 10px;
+}
+
+.user-logo{
+    height: 29px;
+    border-radius: 50%;
+}
+
+button.user-logo-btn.mat-icon-button {
+    width: auto !important;
+}
+
+user-name:focus {
+    outline: none;
+    border: 0;
+ }
+
+ body{
+    margin: 0;
+    padding: 0;
+ }
+
+
+ .top-nav-notifi{
+    margin-right:40px !important; 
+  }
+
+  .app-sidenav {
+    background: #f5f5f5;
+  }
+
+.app-content {
+    padding: 20px 70px;
+}
+.card-title {
+    font-size: 20px !important;
+}
+
+  .app-card {
+    /* width: 400px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .mat-more-content > button.mat-icon-button {
+        margin-top: -5px;
+  }
+
+  .top-noti-no {
+    position: absolute;
+    padding: 0px 5px !important;
+    top: 0px;
+    right: 5px;
+    cursor: pointer !important;
+  }
+
+  .table-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+  }
+  
+  .table-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .table-header > mat-form-field {
+    font-size: 14px;
+    width: 100% !important;
+  }
+  
+  .table-container .mat-table {
+    overflow: auto;
+    max-height: 500px;
+  }
+
+  .ajax-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cursor-p { 
+    cursor: pointer; 
+  }
+
+  app-side-nav a.mat-list-item.active{
+    background: rgba(0,0,0,.04) !important;
+  }
+
+  .login-page {
+    margin: 0 auto;
+    
+  }
+
+
+  
+
+

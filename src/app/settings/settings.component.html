@@ -1,0 +1,45 @@
+<mat-toolbar>
+  <span>Settings</span>
+</mat-toolbar>
+<div>
+  <mat-card class="app-card">
+    <form class="settings-form" (ngSubmit)="onSubmit()" name="settingsForm" [formGroup]="settingsForm" #formDir="ngForm">
+      <div fxLayout='column'>
+
+        <mat-form-field>
+          <input type="email" id="notification_email" matInput formControlName="notification_email" placeholder="Notification Email">
+          <mat-error *ngIf="notification_email.invalid && (notification_email.dirty || notification_email.touched || isSubmit)">
+            <span *ngIf="notification_email.errors.required">
+              Please select a Notification Email
+            </span>
+            <span *ngIf="notification_email.errors.maxlength">
+              Please enter a Notification Email no more than 250 characters.
+            </span>
+            <span *ngIf="notification_email.errors.pattern">
+              Please enter a valid Notification Email .
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <span matPrefix>+91 &nbsp;</span>
+          <input type="number" id="phone_no" matInput formControlName="phone_no" placeholder="Phone No">
+          <mat-error *ngIf="phone_no.invalid && (phone_no.dirty || phone_no.touched || isSubmit)">
+            <span *ngIf="phone_no.errors.required">
+              Please enter a Phone no.
+            </span>
+            <span *ngIf="phone_no.errors.maxlength">
+              Please enter a valid Phone no.
+            </span>
+            <span *ngIf="phone_no.errors.minlength">
+              Please enter a valid Phone no.
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <div fxLayout='row' fxLayoutGap="10px">
+          <button type="submit" mat-raised-button color="primary">Submit</button>
+          <button type="button" (click)="formDir.resetForm(settingsForm)" mat-raised-button color="warn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

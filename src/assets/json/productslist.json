@@ -1,0 +1,20 @@
+{
+    "total_count": 10,
+    "incomplete_results": false,
+    "products":[
+    {
+      "product": 1,
+      "name": "RaJa Thavalam",
+      "price": 10,
+      "status": "avilable",
+      "quantity": 10
+    },
+    {
+      "product": 2,
+      "name": "RaJa Thavalam",
+      "price": 10,
+      "status": "Out of Order",
+      "quantity": 0
+    }
+  ]
+}

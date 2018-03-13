@@ -1,0 +1,13 @@
+
+    {
+      "id":1,
+      "name": "test",
+      "gender": "male",
+      "notes": "",
+      "dob":"10/06/1989",
+      "password": "***********",
+      "email": "test@t.com",
+      "mobile": "9885994588",
+      "actions": "",
+      "status": true
+    }

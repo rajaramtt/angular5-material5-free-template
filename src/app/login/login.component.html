@@ -1,0 +1,46 @@
+<div class="login-page" fxLayout='column' fxFlex="60%" fxFlex.sm="100%" fxFlex.xs="100%">
+
+<mat-toolbar  color="primary">
+  <span>Login</span>
+</mat-toolbar>
+<div>
+  <mat-card class="app-card">
+    <form class="login-form" (ngSubmit)="onSubmit()" name="loginForm" [formGroup]="loginForm" #formDir="ngForm">
+      <div fxLayout='column'>
+        <mat-form-field>
+          <input type="email" id="email" matInput formControlName="email" placeholder="Email">
+          <mat-error *ngIf="email.invalid && (email.dirty || email.touched || isSubmit)">
+            <span *ngIf="email.errors.required">
+              Please select a Email
+            </span>
+            <span *ngIf="email.errors.maxlength">
+              Please enter a Email no more than 250 characters.
+            </span>
+            <span *ngIf="email.errors.pattern">
+              Please enter a valid Email .
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput name="password" placeholder="Password" [type]="hide ? 'password' : 'text'" formControlName="password"  required >
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error *ngIf="password.invalid && (password.dirty || password.touched || isSubmit)">
+            <span *ngIf="password.errors.required">
+              Please enter a Email
+            </span>
+            <span *ngIf="password.errors.maxlength">
+              Please enter a Email no more than 16 characters.
+            </span>
+            <span *ngIf="password.errors.minlength">
+              Please enter a password at least 6 characters.
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <div fxLayout='row' fxLayoutGap="10px">
+          <button type="submit" mat-raised-button color="primary">Login</button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>
+</div>

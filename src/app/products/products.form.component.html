@@ -1,0 +1,81 @@
+<mat-toolbar>
+    <span>{{pageType}} Product</span>
+</mat-toolbar>
+<div>
+    <mat-card class="app-card">
+        <form class="user-form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+            <div fxLayout='column'>
+                <mat-form-field>
+                    <input type="text" matInput name="name" placeholder="Product Name" [(ngModel)]="products.name" required minlength="4" maxlength="25"
+                        #name="ngModel">
+                    <mat-error *ngIf="name.invalid && (name.dirty || name.touched || isSubmit)">
+                        <span *ngIf="name.errors.required">
+                            Please enter a Product Name
+                        </span>
+                        <span *ngIf="name.errors.minlength">
+                            Please enter a Product Name at least 6 characters.
+                        </span>
+                        <span *ngIf="name.errors.minlength">
+                            Please enter a Product Name no more than 25 characters.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="text" name="product" matInput placeholder="product" [(ngModel)]="products.product" required #product="ngModel">
+                    <mat-error *ngIf="product.invalid && (product.dirty || product.touched || isSubmit)">
+                        <span *ngIf="product.errors.required">
+                            Please enter a Product ID
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select placeholder="Status" name="status" [(ngModel)]="products.status" required #status="ngModel">
+                        <mat-option>status</mat-option>
+                        <mat-option value="avilable">Avilable</mat-option>
+                        <mat-option value="outoforder">Out of Order</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="status.invalid && (status.dirty || status.touched || isSubmit)">
+                        <span *ngIf="status.errors.required">
+                            Please select a Status
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <span matPrefix>&#x20b9;&nbsp;</span>
+                    <input type="number" matInput name="price" placeholder="Price" [(ngModel)]="products.price" required #price="ngModel">
+                    <mat-error *ngIf="price.invalid && (price.dirty || price.touched || isSubmit)">
+                        <span *ngIf="price.errors.required">
+                            Please enter a Price
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="number" matInput name="quantity" placeholder="Quantity" [(ngModel)]="products.quantity" required #quantity="ngModel">
+                    <mat-error *ngIf="quantity.invalid && (quantity.dirty || quantity.touched || isSubmit)">
+                        <span *ngIf="quantity.errors.required">
+                            Please enter a Quantity
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+
+                <!-- <mat-form-field>
+
+                        <input type="file" matInput name="images" placeholder="Quantity" [(ngModel)]="images.quantity" required #images="ngModel">
+                        <mat-error *ngIf="images.invalid && (images.dirty || images.touched || isSubmit)">
+                            <span *ngIf="images.errors.required">
+                                Please enter a Quantity
+                            </span>
+                        </mat-error>
+                    </mat-form-field> -->
+
+                <div fxLayout='row' fxLayoutGap="10px">
+                    <button type="submit" mat-raised-button color="primary">Submit</button>
+                    <button type="button" (click)="onFormReset(myForm)" mat-raised-button color="warn">Cancel</button>
+                    <button type="button" routerLink="/products" mat-raised-button color="warn">Go Back</button>
+
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

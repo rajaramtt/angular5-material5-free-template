@@ -1,0 +1,18 @@
+<div class="app-container" [class.app-is-mobile]="mobileQuery.matches">
+    <!-- Header Navigation -->
+    <app-top-header-nav (navToggle)="sideNav.toggle()" *ngIf="authenticationService.isLogin()"></app-top-header-nav>
+
+    <mat-sidenav-container class="app-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav class="app-sidenav" #sideNav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <!-- Side Navigation -->
+            <app-side-nav *ngIf="authenticationService.isLogin()"></app-side-nav>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <!-- Main content -->
+            <div class="app-content">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

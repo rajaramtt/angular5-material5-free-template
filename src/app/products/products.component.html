@@ -1,0 +1,58 @@
+<mat-toolbar>
+  <span>Products</span>
+  <span class="app-fill-remaining-space "></span>
+  <button mat-raised-button  routerLink="/products/new" color="primary">
+    <mat-icon>
+      add
+    </mat-icon>
+    <span> Products</span>
+</button>
+</mat-toolbar>
+<div>
+  <mat-card class="app-card">
+    <div class="ajax-loader" *ngIf="isLoadingResults">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div class="table-container">
+      <mat-table #table [dataSource]="dataSource" matSort #table matSortActive="created" matSortDisableClear matSortDirection="asc">
+        <ng-container matColumnDef="product">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Product #</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.product}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="quantity">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.quantity}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-chip [color]="element.status === 'avilable' ? 'primary' : 'accent'" selected="true">{{element.status}} </mat-chip>
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-icon class="cursor-p" routerLink="/products/edit/10" matTooltip="Edit Products">mode_edit
+            </mat-icon>
+            <!-- <mat-icon class="cursor-p" routerLink="/products/view/{{element.id}}" matTooltip="View Products">pageview
+            </mat-icon> -->
+            <mat-icon class="cursor-p" (click)="outofStack(element)" matTooltip="OutofStack">delete
+            </mat-icon>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator [length]="resultsLength" [pageSize]="10">
+      </mat-paginator>
+    </div>
+  </mat-card>
+</div>

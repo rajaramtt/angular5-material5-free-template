@@ -1,0 +1,50 @@
+<mat-toolbar>
+    <span>Orders</span>
+    <span class="app-fill-remaining-space "></span>
+</mat-toolbar>
+<div>
+    <mat-card class="app-card">
+        <div class="ajax-loader" *ngIf="isLoadingResults">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="table-container">
+            <mat-table #table [dataSource]="dataSource" matSort #table matSortActive="created" matSortDisableClear matSortDirection="asc">
+                <ng-container matColumnDef="order">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Order #</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.order}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>User</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="price">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <mat-chip [color]="element.status === 'success' ? 'primary' : 'accent'" selected="true">{{element.status}} </mat-chip>
+                    </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <mat-icon class="cursor-p" routerLink="/users/view/{{element.order}}" matTooltip="View">pageview
+                        </mat-icon>
+                        <mat-icon *ngIf="element.status === 'pending'" class="cursor-p" (click)="cancelOrder(element)" matTooltip="Cancel Order">remove_shopping_cart                            
+                        </mat-icon>
+                        <mat-icon *ngIf="element.status === 'pending'" class="cursor-p" (click)="deliveryOrder(element)" matTooltip="Deliver Order">
+                            done                            
+                        </mat-icon>
+                        
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [length]="resultsLength" [pageSize]="30">
+            </mat-paginator>
+        </div>
+    </mat-card>
+</div>

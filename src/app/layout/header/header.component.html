@@ -1,0 +1,43 @@
+<mat-toolbar color="primary" class="app-toolbar">
+    <button mat-icon-button (click)="navOpen()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <div class="logo">
+        <a routerLink="/dashboard">
+            <img class="logo-icon" src="./assets/img/logo.png" />
+        </a>
+    </div>
+    <span class="app-fill-remaining-space"></span>
+    <button mat-icon-button [matMenuTriggerFor]="notification" class="top-nav-notifi">
+        <mat-icon>notifications</mat-icon>
+        <mat-chip-list *ngIf="!notifications?.is_read">
+            <mat-chip color="accent" selected="true" class="top-noti-no"  [matMenuTriggerFor]="notification">{{ notifications?.no_of_notfi }}</mat-chip>
+          </mat-chip-list>
+    </button>
+    <mat-menu #notification="matMenu" yPosition="below" xPosition="after" [overlapTrigger]="false">
+        <mat-list>
+            <mat-list-item role="listitem" *ngFor="let notif of notifications?.all_notifications">
+                <mat-icon matListIcon>notifications</mat-icon>
+                <h3 matLine>{{ notif.name }} </h3>
+                <p matLine>
+                    <span>{{ notif.desc }}</span>
+                </p>
+            </mat-list-item>
+        </mat-list>
+    </mat-menu>
+    <mat-menu #appMenu="matMenu" yPosition="below" xPosition="after" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="/profile">
+            <mat-icon>account_circle</mat-icon>
+            <span> My Profile </span>
+        </button>
+        <button mat-menu-item  (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+        </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="appMenu" class="user-logo-btn">
+        <img class="user-logo" src="./assets/img/profile.jpg">
+        <span class="user-name">Hi {{userInfo?.name}}</span>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+    </button>
+</mat-toolbar>

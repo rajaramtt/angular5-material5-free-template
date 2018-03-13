@@ -1,0 +1,168 @@
+<mat-toolbar>Dashboard</mat-toolbar>
+<div fxLayout="row wrap" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="stretch">
+    <mat-card class="app-card" fxFlex="calc(50%-10px)" fxFlex.sm="100%" fxFlex.xs="100%">
+        <mat-card-header fxLayout fxLayoutAlign="space-between stretch">
+            <!-- <mat-icon mat-card-avatar>credit_card</mat-icon> -->
+            <mat-card-title class="card-title">LATEST 10 ORDERS</mat-card-title>
+            <div class="mat-more-content">
+                <button mat-icon-button [matMenuTriggerFor]="menu1">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu1="matMenu">
+                    <button mat-menu-item orders routerLink="/orders">
+                        <mat-icon>payment</mat-icon>
+                        <span>Payments/Orders
+                        </span>
+                    </button>
+                    <button mat-menu-item routerLink="/schedule">
+                        <mat-icon>event</mat-icon>
+                        <span>Schedule
+                        </span>
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-card-header>
+        <mat-table #table [dataSource]="dataSource">
+            <!-- Position Column -->
+            <ng-container matColumnDef="order">
+                <mat-header-cell *matHeaderCellDef>Order #</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.order}} </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>User Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="price">
+                <mat-header-cell *matHeaderCellDef>Price(INR)</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+            </ng-container>
+            <!-- Action Column -->
+
+            <ng-container matColumnDef="view">
+                <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <button mat-button color="primary">View</button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </mat-card>
+    <!-- <mat-card class="app-card" fxFlex="calc(50%-10px)" fxFlex.sm="100%" fxFlex.xs="100%">
+        <mat-card-header fxLayout fxLayoutAlign="space-between stretch">
+            <mat-card-title class="card-title">Sales</mat-card-title>
+            <div class="mat-more-content">
+                <button mat-icon-button [matMenuTriggerFor]="menu2">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu2="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon>payment</mat-icon>
+                        <span>Payments/Orders
+                        </span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>event</mat-icon>
+                        <span>Schedule
+                        </span>
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-card-header>
+        <div id="chart_wrap">
+            <google-chart id="chart_div" [data]="pieChartData"></google-chart>
+        </div>
+    </mat-card> -->
+    <mat-card class="app-card" fxFlex="calc(50%-10px)" fxFlex.sm="100%" fxFlex.xs="100%">
+        <mat-card-header fxLayout fxLayoutAlign="space-between stretch">
+            <!-- <mat-icon mat-card-avatar>credit_card</mat-icon> -->
+            <mat-card-title class="card-title">Most Popular Products</mat-card-title>
+            <div class="mat-more-content">
+                <button mat-icon-button [matMenuTriggerFor]="menu3">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu3="matMenu">
+                    <button mat-menu-item routerLink="/products">
+                        <mat-icon>list
+                        </mat-icon>
+                        <span>Products
+                        </span>
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-card-header>
+        <mat-table #table [dataSource]="dataSource">
+            <!-- Position Column -->
+            <ng-container matColumnDef="order">
+                <mat-header-cell *matHeaderCellDef>Order #</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.order}} </mat-cell>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef>User Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="price">
+                <mat-header-cell *matHeaderCellDef>Price(INR)</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.price}} </mat-cell>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+            </ng-container>
+            <!-- Action Column -->
+
+            <ng-container matColumnDef="view">
+                <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <button mat-button color="primary">View</button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </mat-card>
+    <!-- <mat-card class="app-card" fxFlex="calc(50%-10px)" fxFlex.sm="100%" fxFlex.xs="100%">
+        <mat-card-header fxLayout fxLayoutAlign="space-between stretch">
+            <mat-card-title class="card-title">Country Sales</mat-card-title>
+            <div class="mat-more-content">
+                <button mat-icon-button [matMenuTriggerFor]="menu2">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu2="matMenu">
+                    <button mat-menu-item>
+                        <mat-icon>payment</mat-icon>
+                        <span>Payments/Orders
+                        </span>
+                    </button>
+                    <button mat-menu-item>
+                        <mat-icon>event</mat-icon>
+                        <span>Schedule
+                        </span>
+                    </button>
+                </mat-menu>
+            </div>
+        </mat-card-header>
+        <div>
+            <google-chart [data]="columnChartData"></google-chart>
+        </div>
+    </mat-card> -->
+
+</div>

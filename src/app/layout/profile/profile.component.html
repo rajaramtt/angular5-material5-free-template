@@ -1,0 +1,81 @@
+<mat-toolbar>
+  <span>Profile</span>
+</mat-toolbar>
+<div>
+  <mat-card class="app-card">
+    <form class="profile-form" (ngSubmit)="onSubmit()"  name="profileForm" [formGroup]="profileForm" #formDir="ngForm">
+      <div fxLayout='column'>
+        <mat-form-field>
+          <input type="text" id="name" matInput formControlName="name" placeholder="Name">
+          <mat-error *ngIf="name.invalid && (name.dirty || name.touched || isSubmit)">
+            <span *ngIf="name.errors.required">
+              Please enter a Name
+            </span>
+            <span *ngIf="name.errors.minlength">
+              Please enter a Name at least 4 characters.
+            </span>
+            <span *ngIf="name.errors.maxlength">
+              Please enter a Name no more than 25 characters.
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="email" id="email" matInput formControlName="email" placeholder="Email">
+          <mat-error *ngIf="email.invalid && (email.dirty || email.touched || isSubmit)">
+              <span *ngIf="email.errors.required">
+                  Please select a Email
+              </span>
+              <span *ngIf="email.errors.maxlength">
+                  Please enter a Email no more than 250 characters.
+              </span>
+              <span *ngIf="email.errors.pattern">
+                  Please enter a valid Email .
+              </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Gender" name="gender"  formControlName="gender">
+              <mat-option>Gender</mat-option>
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+          </mat-select>
+          <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched || isSubmit)">
+              <span *ngIf="gender.errors.required">
+                  Please select a Gender
+              </span>
+          </mat-error>
+      </mat-form-field>
+
+        <mat-form-field>
+          <span matPrefix>+91 &nbsp;</span>
+          <input type="number" id="mobile" matInput formControlName="mobile" placeholder="Mobile">
+          <mat-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched || isSubmit)">
+            <span *ngIf="mobile.errors.required">
+              Please enter a Mobile.
+            </span>
+            <span *ngIf="mobile.errors.maxlength">
+              Please enter a valid Mobile.
+            </span>
+            <span *ngIf="mobile.errors.minlength">
+              Please enter a valid Mobile.
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput id="dob" [matDatepicker]="picker" placeholder="Date Of Birth" (click)="picker.open()" formControlName="dob">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="dob.invalid && (dob.dirty || dob.touched || isSubmit)">
+            <span *ngIf="dob.errors.required">
+              Please enter a DOB.
+            </span>
+          </mat-error>
+        </mat-form-field>
+        <div fxLayout='row' fxLayoutGap="10px">
+          <button type="submit" mat-raised-button color="primary">Submit</button>
+          <button type="button"  (click)="formDir.resetForm(profileData)" mat-raised-button color="warn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</div>

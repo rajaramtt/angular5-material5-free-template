@@ -1,0 +1,18 @@
+{
+    "is_read": false,
+    "all_notifications": [
+      {
+        "name": "Notifications 1",
+        "type": "current",
+        "desc": "Dsecription ",
+        "status": 1
+      },
+      {
+        "name": " Previous Notifications 2",
+        "type": "previous",
+        "desc": "Previous Dsecription ",
+        "status": 1
+      }
+    ],
+    "no_of_notfi": 2
+  }

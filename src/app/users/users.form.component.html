@@ -1,0 +1,114 @@
+<mat-toolbar>
+    <span>Add Users</span>
+</mat-toolbar>
+<div>
+    <mat-card class="app-card">
+        <form class="user-form" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" >
+            <div fxLayout='column'>
+                <mat-form-field>
+                    <input type="text" matInput name="name" placeholder="Name" [(ngModel)]="users.name" required minlength="4" maxlength="25"
+                        #name="ngModel">
+                    <mat-error *ngIf="name.invalid && (name.dirty || name.touched || isSubmit)">
+                        <span *ngIf="name.errors.required">
+                            Please enter a Name
+                        </span>
+                        <span *ngIf="name.errors.minlength">
+                            Please enter a Name at least 6 characters.
+                        </span>
+                        <span *ngIf="name.errors.minlength">
+                            Please enter a Name no more than 25 characters.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select placeholder="Gender" name="gender" [(ngModel)]="users.gender" required #gender="ngModel">
+                        <mat-option>Gender</mat-option>
+                        <mat-option value="male">Male</mat-option>
+                        <mat-option value="female">Female</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched || isSubmit)">
+                        <span *ngIf="gender.errors.required">
+                            Please select a Gender
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input type="email" name="email" matInput placeholder="Email" [(ngModel)]="users.email" required maxlength="250" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                        #email="ngModel">
+                    <mat-error *ngIf="email.invalid && (email.dirty || email.touched || isSubmit)">
+                        <span *ngIf="email.errors.required">
+                            Please select a Email
+                        </span>
+                        <span *ngIf="email.errors.maxlength">
+                            Please enter a Email no more than 250 characters.
+                        </span>
+                        <span *ngIf="email.errors.pattern">
+                            Please enter a valid Email .
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <div>
+                    <mat-slide-toggle name="status" [(ngModel)]="users.status">Status</mat-slide-toggle>
+                </div>
+                <mat-form-field>
+                    <input matInput name="password" placeholder="Password" [type]="hide ? 'password' : 'text'" [(ngModel)]="users.password" required
+                        minlength="6" maxlength="16" #password="ngModel">
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                    <mat-error *ngIf="password.invalid && (password.dirty || password.touched || isSubmit)">
+                        <span *ngIf="password.errors.required">
+                            Please enter a Email
+                        </span>
+                        <span *ngIf="password.errors.maxlength">
+                            Please enter a Email no more than 16 characters.
+                        </span>
+                        <span *ngIf="password.errors.minlength">
+                            Please enter a password at least 6 characters.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <span matPrefix>+91 &nbsp;</span>
+                    <input type="number" name="mobile" matInput placeholder="Mobile" [(ngModel)]="users.mobile" required maxlength="10" minlength="10"
+                        #mobile="ngModel">
+                    <mat-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched || isSubmit)">
+                        <span *ngIf="mobile.errors.required">
+                            Please enter a Mobile.
+                        </span>
+                        <span *ngIf="password.errors.maxlength">
+                            Please enter a valid Mobile.
+                        </span>
+                        <span *ngIf="password.errors.minlength">
+                            Please enter a valid Mobile.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput name="dob" [matDatepicker]="picker" placeholder="Date Of Birth" (click)="picker.open()" [(ngModel)]="users.dob"
+                        required #dob="ngModel">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="dob.invalid && (dob.dirty || dob.touched || isSubmit)">
+                        <span *ngIf="dob.errors.required">
+                            Please enter a DOB.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <textarea matInput name="notes" placeholder="Notes" [(ngModel)]="users.notes" rows="4" [(ngModel)]="users.notes" maxlength="500"
+                        #notes="ngModel"></textarea>
+                    <mat-error *ngIf="notes.invalid && (notes.dirty || notes.touched || isSubmit)">
+                        <span *ngIf="notes.errors.maxlength">
+                            Please enter a Notes no more than 500 characters.
+                        </span>
+                    </mat-error>
+                </mat-form-field>
+                <div fxLayout='row' fxLayoutGap="10px">
+                    <button type="submit" mat-raised-button color="primary">Submit</button>
+                    <button type="button" (click)="onFormReset(myForm)" mat-raised-button color="warn">Cancel</button>
+                    <button   type="button" routerLink="/users" mat-raised-button color="warn">Go Back</button>
+
+                </div>
+            </div>
+        </form>
+    </mat-card>
+</div>

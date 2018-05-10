@@ -1,4 +1,4 @@
-# angular5-material2-free-template
+# angular5-material5-free-template
 Material design template for Angular 5 apps, built with Angular CLI
 
 Admin dashboard template based on Angular 5+, Angular Material 2.

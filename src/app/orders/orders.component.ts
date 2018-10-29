@@ -21,7 +21,7 @@ import { ordersList } from '../orders/orderslist';
 import { OrderCancelComponent } from '../layout/dialog/order.cancel.component';
 import { DeliveryConfirmComponent } from '../layout/dialog/delivery.confirm.component';
 
- 
+
 
 
 @Component({
@@ -72,11 +72,11 @@ export class OrderComponent implements OnInit {
 
   }
 
-  cancelOrder(element):void{
+  cancelOrder(element): void {
     const dialogRef = this.dialog.open(OrderCancelComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
+      if (result) {
 
         this.ordersService.cancelOrder(element)
         .subscribe((res) => {
@@ -86,17 +86,17 @@ export class OrderComponent implements OnInit {
           }
         }, function (err) {
           this.toastrService.error(err);
-        })
+        });
 
       }
-    }); 
+    });
   }
 
-  deliveryOrder(element):void{
+  deliveryOrder(element): void {
     const dialogRef = this.dialog.open(DeliveryConfirmComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
+      if (result) {
 
         this.ordersService.deliveryOrder(element)
         .subscribe((res) => {
@@ -106,10 +106,10 @@ export class OrderComponent implements OnInit {
           }
         }, function (err) {
           this.toastrService.error(err);
-        })
+        });
 
       }
-    }); 
+    });
   }
 
 

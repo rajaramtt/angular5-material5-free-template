@@ -7,7 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/empty';
-import 'rxjs/add/operator/retry'; 
+import 'rxjs/add/operator/retry';
 import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/operator/do';
 import { ToastrService } from 'ngx-toastr';
@@ -24,8 +24,8 @@ export class AuthInterceptor implements HttpInterceptor {
     }, (error: any) => {
       if (error instanceof HttpErrorResponse) {
         console.log(error);
-        this.toastrService.error(error.message)
-        
+        this.toastrService.error(error.message);
+
         // if (error.status === 401) {
         //  console.log('404');
         // }
@@ -37,7 +37,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private async handleAccess(request: HttpRequest<any>, next: HttpHandler):
     Promise<HttpEvent<any>> {
-    const token = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).token : "";
+    const token = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).token : '';
     let changedRequest = request;
     const headerSettings: { [name: string]: string | string[]; } = {};
 
@@ -54,7 +54,7 @@ export class AuthInterceptor implements HttpInterceptor {
       headers: newHeader
     });
 
-    return next.handle(changedRequest).toPromise()
+    return next.handle(changedRequest).toPromise();
 
 
 
@@ -65,8 +65,8 @@ export class AuthInterceptor implements HttpInterceptor {
 
 
 
-    
 
-  };
+
+  }
 }
 

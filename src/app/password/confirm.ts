@@ -11,7 +11,7 @@ export class PasswordValidation {
             if (passwordControl && confirmPasswordControl) {
                 const password = passwordControl.value;
                 const confirmPassword = confirmPasswordControl.value;
-                if (password !== confirmPassword) { 
+                if (password !== confirmPassword) {
                     return { matchPassword: true };
                 } else {
                     return null;

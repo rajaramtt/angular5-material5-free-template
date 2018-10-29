@@ -13,13 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ProductsFormComponent implements OnInit {
   products = new ProductsForm();
-  productData:object;
+  productData: object;
   isSubmit: boolean;
-  pageType:string;
-  
+  pageType: string;
+
   constructor(private router: Router, private productsService: ProductsService, private http: HttpClient, private toastrService: ToastrService, private route: ActivatedRoute) { }
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.pageType = 'Add';
     if (id) {
       this.pageType = 'Edit';
@@ -28,8 +28,8 @@ export class ProductsFormComponent implements OnInit {
           this.router.navigate(['/products']);
         }
         this.products = res;
-        this.productData = Object.assign({}, res)
-      })
+        this.productData = Object.assign({}, res);
+      });
     }
   }
   onSubmit(myForm) {
@@ -45,7 +45,7 @@ export class ProductsFormComponent implements OnInit {
               this.router.navigate(['/products']);
             }
           }
-        )
+        );
 
       } else {
         this.productsService.createProduct(this.products)
@@ -55,8 +55,8 @@ export class ProductsFormComponent implements OnInit {
               this.router.navigate(['/products']);
             }
           }
-        
-        )
+
+        );
       }
     }
   }

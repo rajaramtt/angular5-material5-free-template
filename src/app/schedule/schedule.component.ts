@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CalendarComponent } from "ap-angular2-fullcalendar";
+import { CalendarComponent } from 'ap-angular2-fullcalendar';
 import { ScheduleService } from './schedule.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class ScheduleComponent implements OnInit {
 
   ngOnInit() {
 
-    this.title = "Schedule";
+    this.title = 'Schedule';
 
     this.scheduleService.getSchedule().subscribe(
       data => {

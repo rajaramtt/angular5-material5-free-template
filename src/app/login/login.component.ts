@@ -13,10 +13,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   isSubmit: boolean;
-  EMAIL_REGEX = "[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*";
-  hide:boolean;
+  EMAIL_REGEX = '[a-z0-9!#$%&\'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*';
+  hide: boolean;
   returnUrl: string;
-  constructor(private router: Router,private http: HttpClient, private toastrService: ToastrService, private route: ActivatedRoute, private authenticationService: AuthenticationService) { }
+  constructor(private router: Router, private http: HttpClient, private toastrService: ToastrService, private route: ActivatedRoute, private authenticationService: AuthenticationService) { }
 
   ngOnInit(): void {
 
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
 
-  onSubmit(formvalue):boolean {
+  onSubmit(formvalue): boolean {
     this.isSubmit = true;
     if (this.loginForm.invalid) {
       return false;
@@ -53,11 +53,11 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         }
       }
-      
+
       // , function (err) {
       //   this.toastrService.error(err);
       // }
-    )
+    );
       return true;
     }
   }

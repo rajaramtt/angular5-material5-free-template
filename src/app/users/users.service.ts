@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders,HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -35,7 +35,7 @@ return this.http.get<Users>(requestUrl);
 
   createUser(users: usersForm): Observable<any> {
     const href = 'http://localhost/angular/server/add_user.php';
-    return this.http.post<usersForm>(href, users)
+    return this.http.post<usersForm>(href, users);
     // .pipe(
     //   catchError(this.handleError('createUser', users))
     // );
@@ -43,15 +43,15 @@ return this.http.get<Users>(requestUrl);
 
   updateUser(users: usersForm): Observable<any> {
     const href = 'http://localhost/angular/server/update_user.php';
-    return this.http.post<usersForm>(href, users)
+    return this.http.post<usersForm>(href, users);
     // .pipe(
     //   catchError(this.handleError('updateUser', users))
     // );
   }
 
-  getUser(id): Observable<usersForm>{
+  getUser(id): Observable<usersForm> {
     const href = 'assets/json/get_users.json';
-    return this.http.get<usersForm>(href)
+    return this.http.get<usersForm>(href);
     // .pipe(
     //   catchError(this.handleError('getUser'))
 
@@ -60,7 +60,7 @@ return this.http.get<Users>(requestUrl);
 
   deleteUser(users: usersForm): Observable<any> {
     const href = 'http://localhost/angular/server/delete_user.php';
-    return this.http.post<usersForm>(href, users)
+    return this.http.post<usersForm>(href, users);
     // .pipe(
     //   catchError(this.handleError('deleteUser', users))
     // );
@@ -68,15 +68,15 @@ return this.http.get<Users>(requestUrl);
 
   updateProfile(users: usersForm): Observable<any> {
     const href = 'http://localhost/angular/server/profile.php';
-    return this.http.post<usersForm>(href, users)
+    return this.http.post<usersForm>(href, users);
     // .pipe(
     //   catchError(this.handleError('updateUser', users))
     // );
   }
-  
-  
 
-  
+
+
+
 
 
 

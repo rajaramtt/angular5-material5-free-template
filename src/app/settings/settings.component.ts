@@ -15,8 +15,8 @@ export class SettingsComponent implements OnInit {
 
   settingsForm: FormGroup;
   isSubmit: boolean;
-  settingsData:object;
-  EMAIL_REGEX = "[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*";
+  settingsData: object;
+  EMAIL_REGEX = '[a-z0-9!#$%&\'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*';
   id = JSON.parse(localStorage.getItem('currentUser')).id;
   constructor(private router: Router, private settingsService: SettingsService, private http: HttpClient, private toastrService: ToastrService, private route: ActivatedRoute) { }
 
@@ -36,18 +36,18 @@ export class SettingsComponent implements OnInit {
 
     if (this.id) {
       this.settingsService.getSettings(this.id).subscribe((res) => {
-        this.settingsData = Object.assign({}, res)
+        this.settingsData = Object.assign({}, res);
         this.settingsForm.patchValue({
-          notification_email:res.notification_email,
-          phone_no:res.phone_no,
+          notification_email: res.notification_email,
+          phone_no: res.phone_no,
         });
-      })
+      });
     }
   }
   get notification_email() { return this.settingsForm.get('notification_email'); }
   get phone_no() { return this.settingsForm.get('phone_no'); }
 
-  onSubmit(formvalue):boolean {
+  onSubmit(formvalue): boolean {
     this.isSubmit = true;
     if (this.settingsForm.invalid) {
       return false;
@@ -58,7 +58,7 @@ export class SettingsComponent implements OnInit {
           this.toastrService.success(res.msg);
           this.router.navigate(['/settings']);
         }
-      })
+      });
       return true;
     }
 

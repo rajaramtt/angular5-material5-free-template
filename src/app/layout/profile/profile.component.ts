@@ -13,8 +13,8 @@ export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
   isSubmit: boolean;
-  profileData:object;
-  EMAIL_REGEX = "[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*";
+  profileData: object;
+  EMAIL_REGEX = '[a-z0-9!#$%&\'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*';
   id = JSON.parse(localStorage.getItem('currentUser')).id;
   constructor(private router: Router, private usersService: UsersService, private http: HttpClient, private toastrService: ToastrService, private route: ActivatedRoute) { }
 
@@ -46,15 +46,15 @@ export class ProfileComponent implements OnInit {
     if (this.id) {
       this.usersService.getUser(this.id).subscribe((res) => {
         res.dob = new Date(res.dob);
-        this.profileData = Object.assign({}, res)
+        this.profileData = Object.assign({}, res);
         this.profileForm.patchValue({
-          name:res.name,
-          gender:res.gender,
-          email:res.email,
-          mobile:res.mobile,
-          dob:res.dob
+          name: res.name,
+          gender: res.gender,
+          email: res.email,
+          mobile: res.mobile,
+          dob: res.dob
         });
-      })
+      });
     }
 
 
@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
   get dob() { return this.profileForm.get('dob'); }
   get gender() { return this.profileForm.get('gender'); }
 
-  onSubmit(formvalue):boolean {
+  onSubmit(formvalue): boolean {
     this.isSubmit = true;
     if (this.profileForm.invalid) {
       return false;
@@ -81,7 +81,7 @@ export class ProfileComponent implements OnInit {
       // , function (err) {
       //   this.toastrService.error(err);
       // }
-    )
+    );
       return true;
     }
 

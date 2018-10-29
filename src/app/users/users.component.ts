@@ -71,13 +71,13 @@ export class UserComponent implements OnInit {
 
   }
 
-  deleteUser(element):void{
+  deleteUser(element): void {
 
 
     const dialogRef = this.dialog.open(ConfirmComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result){
+      if (result) {
 
         this.usersService.deleteUser(element)
         .subscribe((res) => {
@@ -87,7 +87,7 @@ export class UserComponent implements OnInit {
           }
         }, function (err) {
           this.toastrService.error(err);
-        })
+        });
 
       }
     });
@@ -96,7 +96,7 @@ export class UserComponent implements OnInit {
 
 
 
-    
+
 
   }
 

@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 import { ToastrModule } from 'ngx-toastr';
-import {CalendarModule} from "ap-angular2-fullcalendar";
+import {CalendarModule} from 'ap-angular2-fullcalendar';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -26,7 +26,7 @@ import { ConfirmProductComponent } from './layout/dialog/confirm.product.compone
 import { OrderCancelComponent } from './layout/dialog/order.cancel.component';
 import { DeliveryConfirmComponent } from './layout/dialog/delivery.confirm.component';
 
-  
+
 import { OrdersService } from './orders/orders.service';
 import { ReportsService } from './reports/reports.service';
 import { HeaderService } from './layout/header/header.service';
@@ -89,13 +89,13 @@ import { ReportsComponent } from './reports/reports.component';
     ToastrModule.forRoot({
       progressBar: true,
       positionClass: 'toast-top-full-width',
-      closeButton:true
+      closeButton: true
   }),
   CalendarModule,
     Ng2GoogleChartsModule
   ],
   entryComponents: [
-    ConfirmComponent, 
+    ConfirmComponent,
     ConfirmProductComponent,
     OrderCancelComponent,
     DeliveryConfirmComponent

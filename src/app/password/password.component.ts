@@ -33,12 +33,12 @@ export class PasswordComponent implements OnInit {
     return frm.get('password').value === frm.get('confirm_password').value
        ? null : {'mismatch': true};
  }
-  
+
   get password() { return this.passwordForm.get('password'); }
   get confirm_password() { return this.passwordForm.get('confirm_password'); }
 
-  onSubmit(formvalue):boolean {
-    
+  onSubmit(formvalue): boolean {
+
     this.isSubmit = true;
     if (this.passwordForm.invalid) {
       return false;
@@ -49,7 +49,7 @@ export class PasswordComponent implements OnInit {
           this.toastrService.success(res.msg);
           this.router.navigate(['/change-password']);
         }
-      })
+      });
       return true;
     }
 

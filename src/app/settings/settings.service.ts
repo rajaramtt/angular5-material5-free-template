@@ -12,16 +12,16 @@ import { Settings } from './settings';
 
      }
 
- 
-    getSettings(id): Observable<Settings>{
+
+    getSettings(id): Observable<Settings> {
       const href = 'assets/json/get_users.json';
-      return this.http.get<Settings>(this.settingsURL)
+      return this.http.get<Settings>(this.settingsURL);
     }
 
-    
+
     updateSettings(settings: Settings): Observable<any> {
         const href = 'http://localhost/angular/server/update_settings.php';
-        return this.http.post<Settings>(href, settings)
+        return this.http.post<Settings>(href, settings);
       }
 
 

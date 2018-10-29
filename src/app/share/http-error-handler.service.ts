@@ -19,7 +19,7 @@ export class HttpErrorHandler {
 
   /** Create curried handleError function that already knows the service name */
   createHandleError = (serviceName = '') => <T>
-    (operation = 'operation', result = {} as T) => this.handleError(serviceName, operation, result);
+    (operation = 'operation', result = {} as T) => this.handleError(serviceName, operation, result)
 
   /**
    * Returns a function that handles Http operation failures.
@@ -41,7 +41,7 @@ export class HttpErrorHandler {
       // TODO: better job of transforming error for user consumption
       this.messageService.add(`${serviceName}: ${operation} failed: ${message}`);
 
-      this.toastrService.error(`${serviceName}: ${operation} failed: ${message}`, null, { onActivateTick: true })
+      this.toastrService.error(`${serviceName}: ${operation} failed: ${message}`, null, { onActivateTick: true });
 
       // Let the app keep running by returning a safe result.
       return of(result);

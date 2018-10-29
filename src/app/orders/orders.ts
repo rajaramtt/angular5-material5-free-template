@@ -4,5 +4,5 @@ export class Orders {
     order: number;
     price: number;
     status: string;
-    product_name?:string;
+    product_name?: string;
   }

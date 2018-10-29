@@ -18,7 +18,7 @@ export class UserViewComponent implements OnInit {
   constructor(private router: Router, private usersService: UsersService, private http: HttpClient, private toastrService: ToastrService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
     if (id) {
       this.usersService.getUser(id).subscribe((res) => {
@@ -27,7 +27,7 @@ export class UserViewComponent implements OnInit {
         }
         res.dob = new Date(res.dob);
         this.users = res;
-      })
+      });
     }
   }
 }

@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'change-password', component: PasswordComponent, canActivate: [AuthGuard]},
   { path: 'products', component: ProductsComponent, canActivate: [AuthGuard]},
   { path: 'products/edit/:id', component: ProductsFormComponent, canActivate: [AuthGuard]},
-  { path: 'products/new', component: ProductsFormComponent, canActivate: [AuthGuard]}, 
+  { path: 'products/new', component: ProductsFormComponent, canActivate: [AuthGuard]},
   { path: 'orders', component: OrderComponent, canActivate: [AuthGuard]},
   { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent}

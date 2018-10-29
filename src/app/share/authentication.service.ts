@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/map';
 // import { HttpErrorHandler, HandleError } from '../share/http-error-handler.service';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class AuthenticationService {
 
     // private handleError: HandleError;
-    //, httpErrorHandler: HttpErrorHandler
+    // , httpErrorHandler: HttpErrorHandler
     constructor(private http: HttpClient) {
         // this.handleError = httpErrorHandler.createHandleError('AuthenticationService');
     }
@@ -20,8 +20,8 @@ export class AuthenticationService {
         return this.http.post<any>(href, Login).pipe(
             tap(
                 function (data) {
-                    if (data.status == 'success') {
-                        localStorage.setItem('currentUser', JSON.stringify(data))
+                    if (data.status === 'success') {
+                        localStorage.setItem('currentUser', JSON.stringify(data));
                     }
                     return data;
                 }
@@ -41,7 +41,7 @@ export class AuthenticationService {
         return JSON.parse(localStorage.getItem('currentUser'));
 
     }
-    
+
     isLogin() {
         if (localStorage.getItem('currentUser')) {
             return true;

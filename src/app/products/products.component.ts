@@ -38,7 +38,7 @@ export class ProductsComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private http: HttpClient, private productsService: ProductsService, public dialog: MatDialog, private toastrService: ToastrService, private router: Router) {
-    
+
   }
 
   ngOnInit() {
@@ -70,7 +70,7 @@ export class ProductsComponent implements OnInit {
   outofStack(element): void {
       const dialogRef = this.dialog.open(ConfirmProductComponent);
       dialogRef.afterClosed().subscribe(result => {
-        if(result){
+        if (result) {
           this.productsService.updateProduct(element)
           .subscribe((res) => {
             if (res.status == 'success') {
@@ -79,8 +79,8 @@ export class ProductsComponent implements OnInit {
             }
           }, function (err) {
             this.toastrService.error(err);
-          })
-  
+          });
+
         }
       });
 

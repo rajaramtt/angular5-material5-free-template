@@ -10,14 +10,14 @@ import { AuthenticationService } from '../../share/authentication.service';
 
 export class LayoutComponent {
   mobileQuery: MediaQueryList;
-  userInfo:object;
+  userInfo: object;
   private _mobileQueryListener: () => void;
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,  private authenticationService: AuthenticationService,) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,  private authenticationService: AuthenticationService, ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
-  
+
   ngOnInit() {
     this.userInfo = this.authenticationService.getUserInfo();
   }
@@ -25,7 +25,7 @@ export class LayoutComponent {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-  
 
-  
+
+
 }

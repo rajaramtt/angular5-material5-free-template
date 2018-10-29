@@ -15,13 +15,13 @@ import { debug } from 'util';
 export class UserFormComponent implements OnInit {
 
   users = new usersForm();
-  userData:object;
+  userData: object;
   isSubmit: boolean;
   hide = true;
   constructor(private router: Router, private usersService: UsersService, private http: HttpClient, private toastrService: ToastrService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
     if (id) {
       this.usersService.getUser(id).subscribe((res) => {
@@ -30,8 +30,8 @@ export class UserFormComponent implements OnInit {
         }
         res.dob = new Date(res.dob);
         this.users = res;
-        this.userData = Object.assign({}, res)
-      })
+        this.userData = Object.assign({}, res);
+      });
     }
   }
   onSubmit(myForm) {
@@ -50,7 +50,7 @@ export class UserFormComponent implements OnInit {
           // , function (err) {
           //   this.toastrService.error(err);
           // }
-        )
+        );
 
       } else {
         this.usersService.createUser(this.users)
@@ -63,8 +63,8 @@ export class UserFormComponent implements OnInit {
           // , function (err) {
           //   this.toastrService.error(err);
           // }
-        
-        )
+
+        );
       }
     }
   }

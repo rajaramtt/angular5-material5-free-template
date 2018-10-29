@@ -33,22 +33,21 @@ export class ProductsService {
     return this.http.get<productsList>(requestUrl);
   }
 
-  getProduct(id): Observable<ProductsForm>{
+  getProduct(id): Observable<ProductsForm> {
     const href = 'assets/json/get_product.json';
-    return this.http.get<ProductsForm>(href)
+    return this.http.get<ProductsForm>(href);
   }
 
 
   updateProduct(products: ProductsForm): Observable<any> {
     const href = 'http://localhost/angular/server/update_products.php';
-    return this.http.post<ProductsForm>(href, products)
+    return this.http.post<ProductsForm>(href, products);
   }
 
   createProduct(products: ProductsForm): Observable<any> {
     const href = 'http://localhost/angular/server/add_products.php';
-    return this.http.post<ProductsForm>(href, products)
+    return this.http.post<ProductsForm>(href, products);
   }
-  
 
 
 
@@ -56,6 +55,7 @@ export class ProductsService {
 
 
 
-  
+
+
 
 }

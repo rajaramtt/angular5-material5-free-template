@@ -34,19 +34,19 @@ export class OrdersService {
 
   cancelOrder(users: Orders): Observable<any> {
     const href = 'http://localhost/angular/server/cancel_order.php';
-    return this.http.post<Orders>(href, users)
+    return this.http.post<Orders>(href, users);
   }
 
   deliveryOrder(users: Orders): Observable<any> {
     const href = 'http://localhost/angular/server/delivery_order.php';
-    return this.http.post<Orders>(href, users)
+    return this.http.post<Orders>(href, users);
   }
 
 
-  
 
 
 
-  
+
+
 
 }
